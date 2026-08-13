@@ -27,6 +27,7 @@ Each fixture deliberately includes a gap between recorded activity and the broad
 See the result immediately, without downloading anything:
 
 - [Open the safe Codex example as a Traceplain handback](https://traceplain.zakgov.com/?demo=codex#review)
+- [Open the safe Claude Code example as a Traceplain handback](https://traceplain.zakgov.com/?demo=claude#review)
 - [Open the safe OpenTelemetry example as a Traceplain handback](https://traceplain.zakgov.com/?demo=otel#review)
 
 To inspect or modify the underlying fixtures yourself:
@@ -36,7 +37,7 @@ To inspect or modify the underlying fixtures yourself:
 3. Choose the file or paste its contents.
 4. Compare the generated handback with the matching note in [`expected/`](expected/).
 
-For capture instructions, use the [Codex JSONL guide](https://traceplain.zakgov.com/codex-exec-jsonl-viewer) or [OpenTelemetry GenAI trace guide](https://traceplain.zakgov.com/opentelemetry-genai-trace-viewer).
+For capture instructions, use the [Codex JSONL guide](https://traceplain.zakgov.com/codex-exec-jsonl-viewer), [Claude Code JSONL guide](https://traceplain.zakgov.com/claude-code-jsonl-viewer), or [OpenTelemetry GenAI trace guide](https://traceplain.zakgov.com/opentelemetry-genai-trace-viewer).
 
 ## Generate a CI handback
 
