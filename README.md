@@ -38,6 +38,20 @@ To inspect or modify the underlying fixtures yourself:
 
 For capture instructions, use the [Codex JSONL guide](https://traceplain.zakgov.com/codex-exec-jsonl-viewer) or [OpenTelemetry GenAI trace guide](https://traceplain.zakgov.com/opentelemetry-genai-trace-viewer).
 
+## Generate a CI handback
+
+The free [Traceplain Agent Review Action](https://github.com/harmonicfutures/traceplain-review-action) can turn a Codex JSONL or OTLP/JSON file into bounded Markdown inside a GitHub Actions runner:
+
+```yaml
+- name: Create agent handback
+  id: traceplain
+  uses: harmonicfutures/traceplain-review-action@v1
+  with:
+    path: artifacts/codex-run.jsonl
+```
+
+Safe mode is the default. It suppresses imported command text, paths, messages, model names, service names, and tool names, and it makes no outbound request to Traceplain. The resulting file stays on the runner unless the workflow explicitly uploads or publishes it.
+
 ## Safety boundary
 
 These files are synthetic. Do not commit real agent transcripts, prompts, secrets, customer information, private paths, or proprietary tool results to this repository. Before sharing any activity record, review and redact it under your own authority and data-handling rules.
