@@ -1,0 +1,48 @@
+name: review synthetic examples
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - name: codex
+            path: samples/codex-exec.jsonl
+            format: codex-exec-jsonl
+            events: '3'
+          - name: claude
+            path: samples/claude-code-stream.jsonl
+            format: claude-code-stream-json
+            events: '2'
+          - name: otel
+            path: samples/opentelemetry-genai-trace.json
+            format: opentelemetry-otlp-json
+            events: '3'
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Review ${{ matrix.name }} fixture
+        id: review
+        uses: harmonicfutures/traceplain-review-action@v1
+        with:
+          path: ${{ matrix.path }}
+          output: handbacks/${{ matrix.name }}.md
+
+      - name: Verify conservative output
+        shell: bash
+        run: |
+          test "${{ steps.review.outputs.verdict }}" = "review_needed"
+          test "${{ steps.review.outputs.format }}" = "${{ matrix.format }}"
+          test "${{ steps.review.outputs.event-count }}" = "${{ matrix.events }}"
+          grep -q "REVIEW NEEDED" "handbacks/${{ matrix.name }}.md"
+          ! grep -q "src/example.ts\|support-agent-demo\|npm test\|release is deployed" "handbacks/${{ matrix.name }}.md"

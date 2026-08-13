@@ -41,7 +41,7 @@ For capture instructions, use the [Codex JSONL guide](https://traceplain.zakgov.
 
 ## Generate a CI handback
 
-The free [Traceplain Agent Review Action](https://github.com/harmonicfutures/traceplain-review-action) can turn a Codex JSONL or OTLP/JSON file into bounded Markdown inside a GitHub Actions runner:
+The free [Traceplain Agent Review Action](https://github.com/harmonicfutures/traceplain-review-action) can turn a Codex JSONL, Claude Code stream JSON, or OTLP/JSON file into bounded Markdown inside a GitHub Actions runner:
 
 ```yaml
 - name: Create agent handback
@@ -52,6 +52,8 @@ The free [Traceplain Agent Review Action](https://github.com/harmonicfutures/tra
 ```
 
 Safe mode is the default. It suppresses imported command text, paths, messages, model names, service names, and tool names, and it makes no outbound request to Traceplain. The resulting file stays on the runner unless the workflow explicitly uploads or publishes it.
+
+This repository's workflow exercises the public `@v1` release against all three synthetic formats—Codex, Claude Code, and OpenTelemetry—and verifies the format, event count, review verdict, and safe-mode suppression.
 
 ## Safety boundary
 
