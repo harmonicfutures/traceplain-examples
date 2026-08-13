@@ -1,0 +1,5 @@
+{"type":"thread.started","thread_id":"synthetic-thread"}
+{"type":"item.started","item":{"id":"cmd-1","type":"command_execution","command":"npm test","aggregated_output":"","exit_code":null,"status":"in_progress"}}
+{"type":"item.completed","item":{"id":"cmd-1","type":"command_execution","command":"npm test","aggregated_output":"1 test failed","exit_code":1,"status":"completed"}}
+{"type":"item.completed","item":{"id":"file-1","type":"file_change","changes":[{"path":"src/example.ts","kind":"update"}],"status":"completed"}}
+{"type":"item.completed","item":{"id":"msg-1","type":"agent_message","text":"The change is complete and all tests pass."}}
