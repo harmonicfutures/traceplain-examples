@@ -24,6 +24,13 @@ Each fixture deliberately includes a gap between recorded activity and the broad
 
 ## Try a sample
 
+See the result immediately, without downloading anything:
+
+- [Open the safe Codex example as a Traceplain handback](https://traceplain.zakgov.com/?demo=codex#review)
+- [Open the safe OpenTelemetry example as a Traceplain handback](https://traceplain.zakgov.com/?demo=otel#review)
+
+To inspect or modify the underlying fixtures yourself:
+
 1. Download or open a file in [`samples/`](samples/).
 2. Open [Traceplain](https://traceplain.zakgov.com/#review).
 3. Choose the file or paste its contents.
